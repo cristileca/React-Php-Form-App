@@ -5,6 +5,10 @@ A full-stack form submission application built with React (frontend) and PHP (ba
 
 This application was created by **Leca Marian-Cristian**.
 
+### Estimated Time
+- **Frontend**: 2 hours
+- **Server-Side Logic**: 1 hour
+
  
 # Full-Stack React + PHP App (No Frameworks)
 
@@ -22,18 +26,18 @@ Această aplicație Full-Stack a fost construită folosind React pe frontend și
 - Stilizat pentru a se potrivi unui șablon NicePage
 
 ### Backend (PHP, OOP, fără Framework-uri)
-- **POST /api/submit**
+- **POST /api/submit.php**
   - Acceptă datele formularului
   - Validare câmpuri:
     - Consimțământul este obligatoriu dacă imaginea este încărcată
     - Imaginea este redimensionată dacă lățimea/înălțimea depășește 500px
   - Salvează imaginea pe disc și stochează un record în MySQL
-- **GET /api/records**
+- **GET /api/records.php**
   - Returnează toate înregistrările trimise în format JSON
   - Suportă parametrii opționali:
     - `?sort=email&order=asc`
     - `?page=1&limit=10`
-- **GET /api/export**
+- **GET /api/export.php**
   - Exportă înregistrările în format CSV, codificat UTF-8
 
 - **Middleware de autentificare**
