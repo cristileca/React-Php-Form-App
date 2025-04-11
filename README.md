@@ -7,7 +7,7 @@ This application was created by **Leca Marian-Cristian**.
 
 ### Estimated Time
 - **Frontend**: 2 hours
-- **Server-Side Logic**: 1.5 hour
+- **Server-Side Logic**: 2 hour
 
  
 # Full-Stack React + PHP App (No Frameworks)
