@@ -4,7 +4,7 @@ require_once "../classes/AuthHelper.php";
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET");
-header("Content-Type: text/csv");
+header("Content-Type: text/csv; charset=utf-8");
 header("Content-Disposition: attachment; filename=users_export.csv");
 
 $headers = getallheaders();
@@ -29,10 +29,12 @@ $result = $conn->query($sql);
 
 $output = fopen('php://output', 'w');
 
-fputcsv($output, ['ID', 'Email', 'Name', 'Consent', 'Image Path', 'Created At']);
+fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
+
+fputcsv($output, ['ID', 'Email', 'Name', 'Consent', 'Image Path', 'Created At'], ';');
 
 while ($row = $result->fetch_assoc()) {
-    fputcsv($output, $row);
+    fputcsv($output, $row, ';');
 }
 
 fclose($output);
