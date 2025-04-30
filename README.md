@@ -57,7 +57,7 @@ Această aplicație Full-Stack a fost construită folosind React pe frontend și
 
 1. Creaza DB:
    ```sql
-   CREATE DATABASE form_submission;
+   CREATE DATABASE users;
 
 2. Clonează repo-ul și configurează baza de date:
    ```sql

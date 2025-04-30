@@ -33,9 +33,6 @@ if (!empty($errors)) {
     exit;
 }
 
-$imageHandler = new ImageHandler($files['image'] ?? null);
-$imagePath = $imageHandler->processUpload();
-
 try {
     $db = new Database();
     $conn = $db->getConnection();
@@ -58,6 +55,9 @@ if ($result && $result->fetch_row()[0] > 0) {
     echo json_encode(["success" => false, "message" => "Email already exists"]);
     exit;
 }
+
+$imageHandler = new ImageHandler($files['image'] ?? null);
+$imagePath = $imageHandler->processUpload();
 
 $sql = "INSERT INTO users (email, name, consent, image_path) 
         VALUES ('$email', '$name', $consent, '$imagePath')";
