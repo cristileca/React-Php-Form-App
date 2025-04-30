@@ -38,8 +38,10 @@ try {
     exit;
 }
 
-$sql = "SELECT * FROM users ORDER BY $sort $order LIMIT $limit OFFSET $offset";
-$result = $conn->query($sql);
+$sql = $conn->prepare("SELECT * FROM users ORDER BY $sort $order LIMIT ? OFFSET ?");
+$sql->bind_param("ii", $limit, $offset);
+$sql->execute();
+$result = $sql->get_result();
 
 $records = [];
 while ($row = $result->fetch_assoc()) {
